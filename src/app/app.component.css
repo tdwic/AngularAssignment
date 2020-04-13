@@ -1,0 +1,24 @@
+div{
+  border: 1px red dashed;
+}
+.container {
+  border: 1px yellow solid;
+}
+.row{
+  border: 1px green solid;
+}
+
+.next-event{
+  height: 5rem;
+  margin: 10px auto;
+}
+
+.add-event{
+  height: 5rem;
+  margin: 10px auto;
+}
+
+.calender{
+  height: 16rem;
+  margin: 10px auto;
+}
