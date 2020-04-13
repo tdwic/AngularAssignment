@@ -9,12 +9,30 @@ import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-
 export class EventListComponent implements OnInit {
 
   message: string;
+  lists:Array<any>;
+  user ={
+    name:'',
+    age:0
+  };
 
-  constructor(private data: DataFromComponentHandlerService) {
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
   }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message );
+
+    this.dataFromComponentHandlerService.dateSubject.subscribe(
+      data=> this.changeValue(data)
+    );
+
+  }
+
+  changeValue(data){
+    console.log("data" + data.value);
+    this.user = data;
+
+    console.log(this.user);
+    this.lists.push(data);
+
   }
 
 }

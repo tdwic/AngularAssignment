@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataFromComponentHandlerService {
 
-  private messageSource = new BehaviorSubject<string>('dafault message');
-  currentMessage = this.messageSource.asObservable();
+public dateSubject = new Subject();
 
   constructor() { }
-  changeMessage(message: string){
-    this.messageSource.next(message);
+
+  dateUpdate(data){
+    this.dateSubject.next(data);
   }
+
 }

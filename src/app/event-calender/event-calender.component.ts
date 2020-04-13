@@ -11,17 +11,19 @@ export class EventCalenderComponent implements OnInit {
   userSelectedDate: Date;
 
   message: string;
-
-  constructor(private data: DataFromComponentHandlerService) {
+user=
+  {name:'lal',
+  age:12,
+  date:Date};
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
   }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message );
   }
 
   dateChangeHandler(event) {
-    this.userSelectedDate = event;
-    this.data.changeMessage('hii');
+    this.user.date = event;
+    this.dataFromComponentHandlerService.dateUpdate(this.user);
   }
 
 }
