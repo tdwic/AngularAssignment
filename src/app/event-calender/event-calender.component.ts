@@ -10,11 +10,6 @@ export class EventCalenderComponent implements OnInit {
   selectedDate: Date;
   userSelectedDate: Date;
 
-  message: string;
-user=
-  {name:'lal',
-  age:12,
-  date:Date};
   constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
   }
 
@@ -22,8 +17,7 @@ user=
   }
 
   dateChangeHandler(event) {
-    this.user.date = event;
-    this.dataFromComponentHandlerService.dateUpdate(this.user);
+    this.dataFromComponentHandlerService.dateUpdate(event);
   }
 
 }

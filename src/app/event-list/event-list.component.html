@@ -1,5 +1,21 @@
 <p>event-list works!</p>
-<div *ngFor="let item of lists">
-  {{item}}
-</div>
-{{message}}
+
+{{selectedDate}}
+
+<table style="width:100%">
+  <tr>
+    <th>Event Id</th>
+    <th>Event Caption</th>
+    <th>Event Time</th>
+    <th>Event Date</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let event of EventList">
+    <td>{{event.eventId}}</td>
+    <td>{{event.eventCaption}}</td>
+    <td>{{event.eventTime}}</td>
+    <td>{{event.eventDate}}</td>
+    <td>{{event.eventId}} Delete</td>
+  </tr>
+</table>
+

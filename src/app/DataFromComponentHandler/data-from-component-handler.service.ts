@@ -6,12 +6,12 @@ import {Subject} from 'rxjs';
 })
 export class DataFromComponentHandlerService {
 
-public dateSubject = new Subject();
+public selectedDate = new Subject();
 
   constructor() { }
 
   dateUpdate(data){
-    this.dateSubject.next(data);
+    this.selectedDate.next(data);
   }
 
 }
