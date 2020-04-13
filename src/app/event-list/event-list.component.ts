@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataServiceService} from '../data-service.service';
+import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 
 @Component({
   selector: 'app-event-list',
@@ -10,7 +10,7 @@ export class EventListComponent implements OnInit {
 
   message: string;
 
-  constructor(private data: DataServiceService) {
+  constructor(private data: DataFromComponentHandlerService) {
   }
 
   ngOnInit(): void {

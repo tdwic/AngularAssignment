@@ -4,10 +4,10 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DataServiceService {
+export class DataFromComponentHandlerService {
 
   private messageSource = new BehaviorSubject<string>('dafault message');
-currentMessage = this.messageSource.asObservable();
+  currentMessage = this.messageSource.asObservable();
 
   constructor() { }
   changeMessage(message: string){
