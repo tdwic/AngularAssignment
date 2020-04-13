@@ -12,4 +12,8 @@ export class EventActionButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clickActionButton(event){
+    console.log(event);
+  }
+
 }

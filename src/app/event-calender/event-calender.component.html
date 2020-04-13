@@ -1,1 +1,4 @@
-<p>event-calender works!</p>
+<mat-calendar [selected]="selectedDate" (selectedChange)="dateChangeHandler($event)" ></mat-calendar>
+<h4>{{userSelectedDate}}</h4>
+
+

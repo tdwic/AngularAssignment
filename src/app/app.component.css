@@ -19,6 +19,7 @@ div{
 }
 
 .calender{
-  height: 16rem;
+  height: auto;
   margin: 10px auto;
+  overflow: hidden;
 }
