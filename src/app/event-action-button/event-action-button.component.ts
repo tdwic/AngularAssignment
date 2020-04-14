@@ -16,7 +16,7 @@ export class EventActionButtonComponent implements OnInit {
 
   clickActionButton(event){
     console.log(event);
-    this.matDialog.open(EventAddNewComponent);
+    this.matDialog.open(EventAddNewComponent,{width:"50%"});
   }
 
 }

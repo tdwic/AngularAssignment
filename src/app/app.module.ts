@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { EventAddNewComponent } from './event-add-new/event-add-new.component';
 import {FormsModule} from '@angular/forms';
+import {AmazingTimePickerModule} from 'amazing-time-picker';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {FormsModule} from '@angular/forms';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    AmazingTimePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

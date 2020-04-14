@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {EventModel} from '../model/EventModel';
-import {DateFormat} from '../GlobleMethod/dateFormat';
 
 
 @Component({

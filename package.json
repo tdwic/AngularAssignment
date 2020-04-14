@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~9.1.1",
     "@angular/platform-browser-dynamic": "~9.1.1",
     "@angular/router": "~9.1.1",
+    "amazing-time-picker": "^1.8.0",
     "angular-calendar": "^0.28.8",
     "date-fns": "^2.12.0",
     "rxjs": "~6.5.4",
