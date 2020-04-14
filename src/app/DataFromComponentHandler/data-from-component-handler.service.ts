@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -6,12 +6,23 @@ import {Subject} from 'rxjs';
 })
 export class DataFromComponentHandlerService {
 
-public selectedDate = new Subject();
+  public selectedDate = new Subject();
+  public nextEvent = new Subject();
+  public newEvent = new Subject();
 
-  constructor() { }
+  constructor() {
+  }
 
-  dateUpdate(data){
+  dateUpdate(data) {
     this.selectedDate.next(data);
+  }
+
+  updateNextEvent(data){
+    this.nextEvent.next(data);
+  }
+
+  addNewEvent(data){
+    this.newEvent.next(data);
   }
 
 }

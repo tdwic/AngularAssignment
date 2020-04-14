@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
+import {EventModel} from '../model/EventModel';
 
 @Component({
   selector: 'app-next-event',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-next.component.css']
 })
 export class EventNextComponent implements OnInit {
-
-  constructor() { }
+eventModel= {
+  eventId: '',
+  eventCaption: '',
+  eventTime: '',
+  eventDate: ''
+};
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
+  }
 
   ngOnInit(): void {
+    this.dataFromComponentHandlerService.nextEvent.subscribe(
+      data => this.changeValue(data)
+    );
+  }
+
+  changeValue(data){
+    let eventObject = new EventModel();
+
+    this.eventModel = data;
+
+    console.log(data);
+
   }
 
 }

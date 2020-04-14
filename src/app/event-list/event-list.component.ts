@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
-import {DatePipe} from '@angular/common';
+import {EventModel} from '../model/EventModel';
 
 @Component({
   selector: 'app-event-list',
@@ -9,29 +9,17 @@ import {DatePipe} from '@angular/common';
 })
 export class EventListComponent implements OnInit {
 
-  selectedDate:Date;
-  sd:Date;
+  selectedDate: Date;
+  sd: Date;
 
-  EventList=[
-    {
-      eventId:1,
-      eventCaption:'First Event',
-      eventTime:'03.30-PM',
-      eventDate:'2020-02-10'
-    },
-    {
-      eventId:2,
-      eventCaption:'Second Event',
-      eventTime:'03.30-PM',
-      eventDate:'2020-02-15'
-    },
-    {
-      eventId:3,
-      eventCaption:'Third Event',
-      eventTime:'03.30-PM',
-      eventDate:'2020-02-22'
-    }
-  ];
+  EventList: Array<EventModel> = [];
+
+  userEntity = {
+    eventId: 0,
+    eventCaption: "23",
+    eventDate: "23",
+    eventTime: "23"
+  };
 
 
   constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
@@ -40,13 +28,29 @@ export class EventListComponent implements OnInit {
   ngOnInit(): void {
 
     this.dataFromComponentHandlerService.selectedDate.subscribe(
-      data=> this.changeValue(data)
+      data => this.changeValue(data)
     );
 
   }
 
-  changeValue(data){
+  changeValue(data) {
     this.selectedDate = data;
+    let eventObject = new EventModel();
+
+    eventObject.eventId = Date.now();
+    eventObject.eventCaption="test";
+    eventObject.eventDate=data;
+    eventObject.eventTime=data;
+
+    this.EventList.push(eventObject);
+
+    this.EventList.forEach((obj)=>{
+        if(obj.eventDate == "22/4/2020"){
+          this.dataFromComponentHandlerService.updateNextEvent(obj);
+        }
+      }
+    );
+
   }
 
 }

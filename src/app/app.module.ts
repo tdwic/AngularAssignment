@@ -16,6 +16,7 @@ import {MatCalendar, MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AddNewEventComponent } from './add-new-event/add-new-event.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     EventListComponent,
     EventCalenderComponent,
     EventToDayComponent,
-    EventActionButtonComponent
+    EventActionButtonComponent,
+    AddNewEventComponent
   ],
   imports: [
     BrowserModule,

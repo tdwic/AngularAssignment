@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {AddNewEventComponent} from '../add-new-event/add-new-event.component';
 
 @Component({
   selector: 'app-event-action-button',
@@ -7,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventActionButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   clickActionButton(event){
     console.log(event);
+    this.matDialog.open(AddNewEventComponent);
   }
 
 }
