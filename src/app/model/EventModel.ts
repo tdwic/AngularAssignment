@@ -1,6 +1,8 @@
 export class EventModel {
   eventId: number;
-  eventCaption: string;
-  eventTime: string;
+  eventName: string;
+  eventStartTime: string;
   eventDate: string;
+  eventEndTime:string;
+  eventCompleted:string;
 }

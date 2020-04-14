@@ -1,16 +1,20 @@
 <table style="width:100%">
-    <tr>
-      <th>Event Id</th>
-      <th>Event Caption</th>
-      <th>Event Time</th>
-      <th>Event Date</th>
-      <th>Action</th>
-    </tr>
-    <tr>
-      <td>{{eventModel.eventId}}</td>
-      <td>{{eventModel.eventCaption}}</td>
-      <td>{{eventModel.eventTime}}</td>
-      <td>{{eventModel.eventDate}}</td>
-      <td>Event {{eventModel.eventId}} Delete</td>
-    </tr>
+  <tr>
+    <th>Event Id</th>
+    <th>Event Name</th>
+    <th>Event Date</th>
+    <th>Event Start Time</th>
+    <th>Event End Time</th>
+    <th>Event Status</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>{{eventModel.eventId}}</td>
+    <td>{{eventModel.eventName}}</td>
+    <td>{{eventModel.eventDate}}</td>
+    <td>{{eventModel.eventStartTime}}</td>
+    <td>{{eventModel.eventEndTime}}</td>
+    <td>{{eventModel.eventCompleted}}</td>
+    <td>Event {{eventModel.eventId}} Delete</td>
+  </tr>
 </table>

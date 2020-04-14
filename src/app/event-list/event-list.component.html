@@ -5,16 +5,20 @@
 <table style="width:100%">
   <tr>
     <th>Event Id</th>
-    <th>Event Caption</th>
-    <th>Event Time</th>
+    <th>Event Name</th>
     <th>Event Date</th>
+    <th>Event Start Time</th>
+    <th>Event End Time</th>
+    <th>Event Status</th>
     <th>Action</th>
   </tr>
   <tr *ngFor="let event of EventList">
     <td>{{event.eventId}}</td>
-    <td>{{event.eventCaption}}</td>
-    <td>{{event.eventTime}}</td>
+    <td>{{event.eventName}}</td>
     <td>{{event.eventDate}}</td>
+    <td>{{event.eventStartTime}}</td>
+    <td>{{event.eventEndTime}}</td>
+    <td>{{event.eventCompleted}}</td>
     <td>Event {{event.eventId}} Delete</td>
   </tr>
 </table>

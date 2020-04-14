@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {EventModel} from '../model/EventModel';
+import {DateFormat} from '../GlobleMethod/dateFormat';
+
 
 @Component({
   selector: 'app-event-list',
@@ -9,8 +11,6 @@ import {EventModel} from '../model/EventModel';
 })
 export class EventListComponent implements OnInit {
 
-  selectedDate: Date;
-  sd: Date;
 
   EventList: Array<EventModel> = [];
 
@@ -20,10 +20,9 @@ export class EventListComponent implements OnInit {
     eventDate: "23",
     eventTime: "23"
   };
+  selectedDate: any;
 
-
-  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
-  }
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) { }
 
   ngOnInit(): void {
 
@@ -33,19 +32,24 @@ export class EventListComponent implements OnInit {
 
   }
 
+
+
   changeValue(data) {
-    this.selectedDate = data;
+    this.selectedDate =data;
     let eventObject = new EventModel();
 
     eventObject.eventId = Date.now();
-    eventObject.eventCaption="test";
+    eventObject.eventName="test";
     eventObject.eventDate=data;
-    eventObject.eventTime=data;
+    eventObject.eventStartTime=data;
+    eventObject.eventEndTime=data;
+    eventObject.eventCompleted='Not Completed';
 
     this.EventList.push(eventObject);
 
     this.EventList.forEach((obj)=>{
-        if(obj.eventDate == "22/4/2020"){
+        if(obj.eventDate == "14/4/2020"){
+          obj.eventCompleted = 'Completed';
           this.dataFromComponentHandlerService.updateNextEvent(obj);
         }
       }

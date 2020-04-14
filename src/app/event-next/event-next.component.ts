@@ -8,11 +8,14 @@ import {EventModel} from '../model/EventModel';
   styleUrls: ['./event-next.component.css']
 })
 export class EventNextComponent implements OnInit {
+
 eventModel= {
   eventId: '',
-  eventCaption: '',
-  eventTime: '',
-  eventDate: ''
+  eventName: '',
+  eventStartTime: '',
+  eventDate: '',
+  eventEndTime:'',
+  eventCompleted:''
 };
   constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
   }
@@ -24,7 +27,6 @@ eventModel= {
   }
 
   changeValue(data){
-    let eventObject = new EventModel();
 
     this.eventModel = data;
 
