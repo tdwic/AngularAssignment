@@ -10,14 +10,24 @@ import {EventModel} from '../model/EventModel';
 })
 export class EventListComponent implements OnInit {
 
-
+  EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
 
+  EventListNew: Array<any> = [];
+
   userEntity = {
-    eventId: 0,
-    eventCaption: "23",
-    eventDate: "23",
-    eventTime: "23"
+    eventMainDate:'',
+    eventList:[
+      {
+        eventId:'',
+        eventName:'',
+        eventStartTime:'',
+        eventDate:'',
+        eventEndTime:'',
+        eventCompleted:'',
+        eventDescription:''
+      }
+    ]
   };
   selectedDate: any;
 
@@ -29,31 +39,38 @@ export class EventListComponent implements OnInit {
       data => this.changeValue(data)
     );
 
+    this.dataFromComponentHandlerService.newEvent.subscribe(
+      data => this.changeValueNewEvent(data)
+    );
+
   }
 
 
 
   changeValue(data) {
     this.selectedDate =data;
-    let eventObject = new EventModel();
-
-    eventObject.eventId = Date.now();
-    eventObject.eventName="test";
-    eventObject.eventDate=data;
-    eventObject.eventStartTime=data;
-    eventObject.eventEndTime=data;
-    eventObject.eventCompleted='Not Completed';
-
-    this.EventList.push(eventObject);
-
-    this.EventList.forEach((obj)=>{
-        if(obj.eventDate == "14/4/2020"){
-          obj.eventCompleted = 'Completed';
-          this.dataFromComponentHandlerService.updateNextEvent(obj);
+    this.EventListMemory.forEach((event)=>{
+        if (event.eventDate == this.selectedDate){
+          this.EventList.push();
         }
-      }
-    );
+    });
 
+
+    // this.EventList.forEach((obj)=>{
+    //     if(obj.eventDate == "14/4/2020"){
+    //       obj.eventCompleted = 'Completed';
+    //       this.dataFromComponentHandlerService.updateNextEvent(obj);
+    //     }
+    //   }
+    // );
+
+  }
+
+  changeValueNewEvent(data){
+    let eventModel = new EventModel();
+    eventModel = data;
+    this.EventListMemory.push(eventModel);
+    this.EventList.push(eventModel);
   }
 
 }

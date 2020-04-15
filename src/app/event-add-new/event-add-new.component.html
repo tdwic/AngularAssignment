@@ -1,31 +1,46 @@
 <p>event-add-new works!</p>
-<form class="example-form">
+<form class="example-form" [formGroup]="newEventFormController">
   <mat-form-field class="example-full-width">
     <mat-label>Event Name</mat-label>
-    <input matInput placeholder="Annual Meeting" >
+    <input
+      matInput
+      formControlName="eventName"
+      placeholder="Annual Meeting" >
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Event Description</mat-label>
-    <textarea matInput placeholder="Ex. First attend lectures, then "></textarea>
+    <textarea
+          matInput
+          formControlName="eventDescription"
+          placeholder="Ex. First attend lectures, then "></textarea>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
+    <input
+        matInput
+        formControlName="eventDate"
+        [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Choose Start Time</mat-label>
-    <input atp-time-picker value="10:00" matInput>
+    <input
+        atp-time-picker
+        formControlName="eventStartTime"
+        matInput>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Choose End Time</mat-label>
-    <input atp-time-picker value="10:00" matInput>
+    <input
+        atp-time-picker
+        formControlName="eventEndTime"
+        matInput>
   </mat-form-field>
-  <button mat-flat-button color="primary">Save</button>
+  <button mat-flat-button color="primary" (click)="addNewEvent()" >Save</button>
   <button mat-flat-button>Close</button>
 </form>

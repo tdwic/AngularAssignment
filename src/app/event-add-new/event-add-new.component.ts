@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validator} from '@angular/forms';
+import {Timestamp} from 'rxjs/internal-compatibility';
+import {EventModel} from '../model/EventModel';
+import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
+import {DateFormat} from '../GlobleMethod/dateFormat';
 
 @Component({
   selector: 'app-event-add-new',
@@ -7,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventAddNewComponent implements OnInit {
 
-  constructor() { }
+
+
+  public newEventFormController:FormGroup;
+
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
+    this.newEventFormController = new FormGroup({
+      eventName:new FormControl("t"),
+      eventDescription:new FormControl("t2"),
+      eventDate:new FormControl(new Date()),
+      eventStartTime:new FormControl("10:00"),
+      eventEndTime:new FormControl("10:00"),
+      eventStatus:new FormControl("Not Completed")
+    });
+  }
 
   ngOnInit(): void {
+
+  }
+
+  addNewEvent(){
+
+    let eventModel = new EventModel();
+    let dateFormatService = new DateFormat();
+
+    let tempDate = dateFormatService.formatDateInput(this.newEventFormController.controls["eventDate"].value);
+
+    eventModel.eventId = 0;
+    eventModel.eventName = this.newEventFormController.controls["eventName"].value;
+    eventModel.eventDescription = this.newEventFormController.controls["eventDescription"].value;
+    eventModel.eventDate = tempDate;
+    eventModel.eventStartTime = this.newEventFormController.controls["eventStartTime"].value;
+    eventModel.eventEndTime = this.newEventFormController.controls["eventEndTime"].value;
+    eventModel.eventCompleted = 'Not Completed';
+
+    this.dataFromComponentHandlerService.addNewEvent(eventModel);
   }
 
 }

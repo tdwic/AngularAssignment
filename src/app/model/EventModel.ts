@@ -5,4 +5,5 @@ export class EventModel {
   eventDate: string;
   eventEndTime:string;
   eventCompleted:string;
+  eventDescription:string;
 }

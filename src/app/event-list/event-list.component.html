@@ -9,6 +9,7 @@
     <th>Event Status</th>
     <th>Action</th>
   </tr>
+
   <tr *ngFor="let event of EventList">
     <td>{{event.eventId}}</td>
     <td>{{event.eventName}}</td>
@@ -18,5 +19,6 @@
     <td>{{event.eventCompleted}}</td>
     <td>del</td>
   </tr>
+
 </table>
 

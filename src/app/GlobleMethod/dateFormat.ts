@@ -4,6 +4,6 @@ export class DateFormat {
     const year = date.getFullYear();
     const month  = date.getMonth()+1;
 
-    return day + "-" + month + "-" + year;
+    return day + "/" + month + "/" + year;
   }
 }
