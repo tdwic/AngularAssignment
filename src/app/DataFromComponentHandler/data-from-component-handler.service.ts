@@ -10,6 +10,7 @@ export class DataFromComponentHandlerService {
   public selectedDate = new Subject();
   public nextEvent = new Subject();
   public newEvent = new Subject();
+  public feilteredEventsByDate = new Subject();
 
   constructor() {
   }
@@ -24,6 +25,10 @@ export class DataFromComponentHandlerService {
 
   addNewEvent(data){
     this.newEvent.next(data);
+  }
+
+  filterEventsByDate(data){
+    this.feilteredEventsByDate.next(data);
   }
 
 }

@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import { EventAddNewComponent } from './event-add-new/event-add-new.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
+import { EventListByDayComponent } from './event-list-by-day/event-list-by-day.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
     EventCalenderComponent,
     EventToDayComponent,
     EventActionButtonComponent,
-    EventAddNewComponent
+    EventAddNewComponent,
+    EventListByDayComponent
   ],
   imports: [
     BrowserModule,

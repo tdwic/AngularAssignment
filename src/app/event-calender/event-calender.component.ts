@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {DateFormat} from '../GlobleMethod/dateFormat';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
+import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
 
 @Component({
   selector: 'app-event-calender',
@@ -15,6 +18,7 @@ export class EventCalenderComponent implements OnInit {
   userSelectedDate: Date;
 
   constructor(
+    public matDialog: MatDialog,
     private dataFromComponentHandlerService: DataFromComponentHandlerService
   ) {
   }
@@ -24,6 +28,7 @@ export class EventCalenderComponent implements OnInit {
 
   dateChangeHandler(event) {
     this.dataFromComponentHandlerService.dateUpdate(this.formatDateInput(event));
+    this.matDialog.open(EventListByDayComponent,{width:"50%"});
   }
 
   public formatDateInput(date: Date): string {

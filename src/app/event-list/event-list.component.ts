@@ -12,8 +12,7 @@ export class EventListComponent implements OnInit {
 
   EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
-
-  EventListNew: Array<any> = [];
+  tempArray: Array<EventModel> = [];
 
   userEntity = {
     eventMainDate:'',
@@ -48,21 +47,25 @@ export class EventListComponent implements OnInit {
 
 
   changeValue(data) {
+
+    this.tempArray = [];
+
     this.selectedDate =data;
+
     this.EventListMemory.forEach((event)=>{
-        if (event.eventDate == this.selectedDate){
-          this.EventList.push();
-        }
+      if (event.eventDate == this.selectedDate){
+        this.tempArray.push(event);
+      }
     });
 
+    this.EventList =[];
 
-    // this.EventList.forEach((obj)=>{
-    //     if(obj.eventDate == "14/4/2020"){
-    //       obj.eventCompleted = 'Completed';
-    //       this.dataFromComponentHandlerService.updateNextEvent(obj);
-    //     }
-    //   }
-    // );
+    this.tempArray.forEach((event)=>{
+      console.log(event);
+      this.EventList.push(event);
+    });
+
+    this.dataFromComponentHandlerService.filterEventsByDate(this.EventList);
 
   }
 
