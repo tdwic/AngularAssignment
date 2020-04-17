@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {EventModel} from '../model/EventModel';
+import {MatDialog} from '@angular/material/dialog';
+import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class DataFromComponentHandlerService {
   public newEvent = new Subject();
   public feilteredEventsByDate = new Subject();
 
-  constructor() {
+  constructor(public matDialog: MatDialog) {
+
   }
 
   dateUpdate(data) {
@@ -29,6 +32,10 @@ export class DataFromComponentHandlerService {
 
   filterEventsByDate(data){
     this.feilteredEventsByDate.next(data);
+    console.log("Just Paased" + data);
+    this.matDialog.open(EventListByDayComponent,{width:"50%",data});
+
   }
+
 
 }

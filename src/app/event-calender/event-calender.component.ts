@@ -18,7 +18,7 @@ export class EventCalenderComponent implements OnInit {
   userSelectedDate: Date;
 
   constructor(
-    public matDialog: MatDialog,
+
     private dataFromComponentHandlerService: DataFromComponentHandlerService
   ) {
   }
@@ -28,7 +28,7 @@ export class EventCalenderComponent implements OnInit {
 
   dateChangeHandler(event) {
     this.dataFromComponentHandlerService.dateUpdate(this.formatDateInput(event));
-    this.matDialog.open(EventListByDayComponent,{width:"50%"});
+    //this.matDialog.open(EventListByDayComponent,{width:"50%"});
   }
 
   public formatDateInput(date: Date): string {
