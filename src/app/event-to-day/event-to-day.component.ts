@@ -9,7 +9,12 @@ export class EventToDayComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  time = new Date();
+
+  ngOnInit() {
+    setInterval(() => {
+      this.time = new Date();
+    }, 1000);
   }
 
 }
