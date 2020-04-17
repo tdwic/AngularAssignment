@@ -21,7 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
 import { EventListByDayComponent } from './event-list-by-day/event-list-by-day.component';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import {MatDividerModule} from '@angular/material/divider';
         FormsModule,
         AmazingTimePickerModule,
         ReactiveFormsModule,
-        MatDividerModule
+        MatDividerModule,
+        FontAwesomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]

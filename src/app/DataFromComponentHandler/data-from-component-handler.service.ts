@@ -33,7 +33,7 @@ export class DataFromComponentHandlerService {
   filterEventsByDate(data){
     this.feilteredEventsByDate.next(data);
     console.log("Just Paased" + data);
-    this.matDialog.open(EventListByDayComponent,{width:"50%",data});
+    this.matDialog.open(EventListByDayComponent,{width:"70%",data});
 
   }
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {EventModel} from '../model/EventModel';
+import {faPencilAlt,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,6 +14,10 @@ export class EventListComponent implements OnInit {
   EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
   tempArray: Array<EventModel> = [];
+
+  selectedDate: any;
+  faPencilAlt: any;
+  faTrashAlt: any;
 
   userEntity = {
     eventMainDate:'',
@@ -28,9 +33,12 @@ export class EventListComponent implements OnInit {
       }
     ]
   };
-  selectedDate: any;
 
-  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) { }
+
+  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
+    this.faPencilAlt=faPencilAlt;
+    this.faTrashAlt = faTrashAlt;
+  }
 
   ngOnInit(): void {
 
