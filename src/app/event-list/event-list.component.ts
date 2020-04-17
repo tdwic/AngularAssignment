@@ -44,8 +44,10 @@ export class EventListComponent implements OnInit {
     this.faPencilAlt=faPencilAlt;
     this.faTrashAlt = faTrashAlt;
   }
+  time = new Date();
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.clockMethod();
 
     this.dataFromComponentHandlerService.selectedDate.subscribe(
       data => this.changeValue(data)
@@ -70,13 +72,6 @@ export class EventListComponent implements OnInit {
         this.tempArray.push(event);
       }
     });
-
-    // this.EventList =[];
-    //
-    // this.tempArray.forEach((event)=>{
-    //   console.log(event);
-    //   this.EventList.push(event);
-    // });
 
     this.dataFromComponentHandlerService.filterEventsByDate(this.tempArray);
 
@@ -110,4 +105,13 @@ export class EventListComponent implements OnInit {
     }
 
   }
+
+  clockMethod(){
+    setInterval(() => {
+      this.time = new Date();
+      console.log(this.time.getHours()+":"+this.time.getMinutes());
+    }, 1000);
+  }
+
+
 }

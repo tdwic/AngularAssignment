@@ -14,6 +14,7 @@ export class EventToDayComponent implements OnInit {
   ngOnInit() {
     setInterval(() => {
       this.time = new Date();
+      console.log(this.time.getHours()+":"+this.time.getMinutes());
     }, 1000);
   }
 
