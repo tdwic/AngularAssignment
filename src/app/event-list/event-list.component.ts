@@ -9,7 +9,7 @@ import {EventModel} from '../model/EventModel';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-
+  idNumber:number=0;
   EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
   tempArray: Array<EventModel> = [];
@@ -70,8 +70,9 @@ export class EventListComponent implements OnInit {
   }
 
   changeValueNewEvent(data){
-    let eventModel = new EventModel();
+    let eventModel: EventModel;
     eventModel = data;
+    eventModel.eventId = this.idNumber++;
     this.EventListMemory.push(eventModel);
     this.EventList.push(eventModel);
   }

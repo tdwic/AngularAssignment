@@ -20,6 +20,7 @@ import { EventAddNewComponent } from './event-add-new/event-add-new.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
 import { EventListByDayComponent } from './event-list-by-day/event-list-by-day.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -33,20 +34,21 @@ import { EventListByDayComponent } from './event-list-by-day/event-list-by-day.c
     EventAddNewComponent,
     EventListByDayComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    AmazingTimePickerModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        AmazingTimePickerModule,
+        ReactiveFormsModule,
+        MatDividerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

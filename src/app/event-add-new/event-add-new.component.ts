@@ -4,6 +4,7 @@ import {Timestamp} from 'rxjs/internal-compatibility';
 import {EventModel} from '../model/EventModel';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {DateFormat} from '../GlobleMethod/dateFormat';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-event-add-new',
@@ -13,10 +14,12 @@ import {DateFormat} from '../GlobleMethod/dateFormat';
 export class EventAddNewComponent implements OnInit {
 
 
-
+  idNumber:number=0;
   public newEventFormController:FormGroup;
 
-  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
+  constructor(
+    private dialogRef: MatDialogRef<EventAddNewComponent>,
+    private dataFromComponentHandlerService: DataFromComponentHandlerService) {
     this.newEventFormController = new FormGroup({
       eventName:new FormControl("t"),
       eventDescription:new FormControl("t2"),
@@ -32,13 +35,12 @@ export class EventAddNewComponent implements OnInit {
   }
 
   addNewEvent(){
-
     let eventModel = new EventModel();
     let dateFormatService = new DateFormat();
 
     let tempDate = dateFormatService.formatDateInput(this.newEventFormController.controls["eventDate"].value);
 
-    eventModel.eventId = 0;
+    eventModel.eventId = this.idNumber;
     eventModel.eventName = this.newEventFormController.controls["eventName"].value;
     eventModel.eventDescription = this.newEventFormController.controls["eventDescription"].value;
     eventModel.eventDate = tempDate;
@@ -49,4 +51,7 @@ export class EventAddNewComponent implements OnInit {
     this.dataFromComponentHandlerService.addNewEvent(eventModel);
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
