@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {EventModel} from '../model/EventModel';
 import {faPencilAlt,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import {MatDialog} from '@angular/material/dialog';
+import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
+import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
 
 
 @Component({
@@ -35,7 +38,9 @@ export class EventListComponent implements OnInit {
   };
 
 
-  constructor(private dataFromComponentHandlerService: DataFromComponentHandlerService) {
+  constructor(
+    public matDialog: MatDialog,
+    private dataFromComponentHandlerService: DataFromComponentHandlerService) {
     this.faPencilAlt=faPencilAlt;
     this.faTrashAlt = faTrashAlt;
   }
@@ -66,14 +71,14 @@ export class EventListComponent implements OnInit {
       }
     });
 
-    this.EventList =[];
+    // this.EventList =[];
+    //
+    // this.tempArray.forEach((event)=>{
+    //   console.log(event);
+    //   this.EventList.push(event);
+    // });
 
-    this.tempArray.forEach((event)=>{
-      console.log(event);
-      this.EventList.push(event);
-    });
-
-    this.dataFromComponentHandlerService.filterEventsByDate(this.EventList);
+    this.dataFromComponentHandlerService.filterEventsByDate(this.tempArray);
 
   }
 
@@ -85,4 +90,24 @@ export class EventListComponent implements OnInit {
     this.EventList.push(eventModel);
   }
 
+  editEvent(event) {
+    // let eventModel: EventModel;
+    // eventModel = event;
+    // this.matDialog.open(EventAddNewComponent,{width:"70%",eventModel});
+  }
+
+  removeEvent(eventId: number) {
+    let indexInMemory;
+    let indexInView;
+    indexInMemory = (this.EventListMemory.findIndex(x=>x.eventId == eventId));
+    indexInView = (this.EventListMemory.findIndex(x=>x.eventId == eventId));
+
+    this.EventListMemory.splice(indexInMemory,1);
+    this.EventList.splice(indexInView,1);
+
+    if (this.EventListMemory.length == 0 || this.EventList.length == 0){
+      this.idNumber = 0;
+    }
+
+  }
 }

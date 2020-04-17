@@ -13,7 +13,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class EventAddNewComponent implements OnInit {
 
-
+  editableDialog:boolean=false;
   idNumber:number=0;
   public newEventFormController:FormGroup;
 

@@ -17,8 +17,8 @@
     <td>{{event.eventStartTime}}</td>
     <td>{{event.eventEndTime}}</td>
     <td>{{event.eventCompleted}}</td>
-    <td><fa-icon [icon]="faPencilAlt"></fa-icon></td>
-     <td><fa-icon [icon]="faTrashAlt"></fa-icon></td>
+    <td><span (click)="editEvent(event)"><fa-icon [icon]="faPencilAlt"></fa-icon></span></td>
+    <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
   </tr>
 
 </table>
