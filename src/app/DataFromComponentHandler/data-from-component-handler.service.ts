@@ -12,6 +12,7 @@ export class DataFromComponentHandlerService {
   public selectedDate = new Subject();
   public nextEvent = new Subject();
   public newEvent = new Subject();
+  public saveUpdates = new Subject();
   public feilteredEventsByDate = new Subject();
 
   constructor(public matDialog: MatDialog) {
@@ -20,6 +21,10 @@ export class DataFromComponentHandlerService {
 
   dateUpdate(data) {
     this.selectedDate.next(data);
+  }
+
+  saveEditEvent(data){
+    this.saveUpdates.next(data);
   }
 
   updateNextEvent(data){
