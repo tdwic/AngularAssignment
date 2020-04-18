@@ -29,7 +29,10 @@ eventModel= {
 
   changeValue(data){
 
-    this.eventModel = data;
+    if (data != null){
+      this.eventModel = data;
+    }
+
 
     console.log("In Next Event Component " + this.eventModel.eventName);
 

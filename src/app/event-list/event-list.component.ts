@@ -14,6 +14,9 @@ import {EventEditComponent} from '../event-edit/event-edit.component';
 })
 export class EventListComponent implements OnInit {
 
+  tempEventId:number;
+  eventUpdated:boolean = false;
+
   dateFormatService = new DateFormat();
   idNumber:number=0;
   EventListMemory: Array<EventModel> = [];
@@ -24,20 +27,19 @@ export class EventListComponent implements OnInit {
   faPencilAlt: any;
   faTrashAlt: any;
 
-  userEntity = {
-    eventMainDate:'',
-    eventList:[
+
+
+    eventList:
       {
-        eventId:'',
-        eventName:'',
-        eventStartTime:'',
-        eventDate:'',
-        eventEndTime:'',
-        eventCompleted:'',
-        eventDescription:''
-      }
-    ]
-  };
+        eventId:'-',
+        eventName:'-',
+        eventStartTime:'-',
+        eventDate:'-',
+        eventEndTime:'-',
+        eventCompleted:'-',
+        eventDescription:'-'
+      };
+
 
 
   constructor(
@@ -67,6 +69,7 @@ export class EventListComponent implements OnInit {
   }
 
   saveEditChanges(data){
+    this.eventUpdated = true;
     let eventModel: EventModel;
     eventModel = data;
 
@@ -93,14 +96,6 @@ export class EventListComponent implements OnInit {
         event.eventCompleted = eventModel.eventCompleted;
       }
     });
-
-    // console.log("Saving from " + eventModel.eventName);
-    // console.log("Saving from " + eventModel.eventStartTime);
-    // console.log("Saving from " + eventModel.eventId);
-    // console.log("Saving from " + eventModel.eventEndTime);
-    // console.log("Saving from " + eventModel.eventDescription);
-    // console.log("Saving from " + eventModel.eventDate);
-    // console.log("Saving from " + eventModel.eventCompleted);
   }
 
   changeValue(data) {
@@ -183,13 +178,16 @@ export class EventListComponent implements OnInit {
       console.log("New Time "+ finalTime);
 
       this.EventListMemory.forEach((event)=>{
-        if (event.eventStartTime == finalTime){
-          console.log("Done " + event.eventStartTime);
-          console.log("Done " + event.eventStartTime.toString());
-
+        if (event.eventStartTime == finalTime && (this.eventUpdated == true || event.eventId != this.tempEventId)){
+          this.tempEventId = event.eventId;
+          this.eventUpdated = false;
           this.dataFromComponentHandlerService.updateNextEvent(event);
-
         }
+
+        if (event.eventEndTime == finalTime){
+          this.dataFromComponentHandlerService.updateNextEvent(null);
+        }
+
       })
 
 
