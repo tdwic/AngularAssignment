@@ -31,7 +31,7 @@ eventModel= {
 
     this.eventModel = data;
 
-    console.log(data);
+    console.log("In Next Event Component " + this.eventModel.eventName);
 
   }
 

@@ -155,13 +155,11 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
-      let y = this.time.toTimeString();
-      //let y = "12:19:14 AM";
-console.log("yyyy "+y);
-      let min = parseInt(y.split( ':',2).splice(1).toString());
-      let am_pm = y.split( ' ',2).splice(1).toString();
-      let hour = parseInt( y.split( ':',1).toString());
-      console.log("Time "+hour+":"+min+":"+am_pm);
+     // let timeToFilter = this.time.toTimeString();
+      let timeToFilter = "03:45 AM";
+      let min = parseInt(timeToFilter.split( ':',2).splice(1).toString());
+      let am_pm = timeToFilter.split( ' ',2).splice(1).toString();
+      let hour = parseInt( timeToFilter.split( ':',1).toString());
 
       if (am_pm == 'PM'){
 
@@ -181,11 +179,17 @@ console.log("yyyy "+y);
         newHour = hour;
       }
 
-      console.log("New Time "+ newHour+":" + min);
+      let finalTime = (newHour + ":" + min).toString();
+      console.log("New Time "+ finalTime);
 
       this.EventListMemory.forEach((event)=>{
-        console.log("hi " + event.eventStartTime);
-        console.log("hi2 " + event.eventStartTime.toString());
+        if (event.eventStartTime == finalTime){
+          console.log("Done " + event.eventStartTime);
+          console.log("Done " + event.eventStartTime.toString());
+
+          this.dataFromComponentHandlerService.updateNextEvent(event);
+
+        }
       })
 
 
