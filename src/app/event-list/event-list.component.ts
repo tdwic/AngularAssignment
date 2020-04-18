@@ -76,7 +76,18 @@ export class EventListComponent implements OnInit {
     indexInMemory = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
     indexInView = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
 
-    
+    this.EventList.forEach((event)=>{
+      if (event.eventId == eventModel.eventId){
+        event.eventId = eventModel.eventId;
+        event.eventName = eventModel.eventName;
+        event.eventDescription = eventModel.eventDescription;
+        event.eventStartTime = eventModel.eventStartTime;
+        event.eventEndTime = eventModel.eventEndTime;
+        event.eventDate = eventModel.eventDate;
+        event.eventCompleted = eventModel.eventCompleted;
+      }
+    })
+
     // console.log("Saving from " + eventModel.eventName);
     // console.log("Saving from " + eventModel.eventStartTime);
     // console.log("Saving from " + eventModel.eventId);

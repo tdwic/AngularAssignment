@@ -3,6 +3,7 @@
   <tr>
     <th>Event Id</th>
     <th>Event Name</th>
+    <th>Event Description</th>
     <th>Event Date</th>
     <th>Event Start Time</th>
     <th>Event End Time</th>
@@ -13,7 +14,8 @@
   <tr *ngFor="let event of EventList">
     <td>{{event.eventId}}</td>
     <td>{{event.eventName}}</td>
-    <td>{{event.eventDate}}</td>
+    <td>{{event.eventDescription}}</td>
+    <td>{{event.eventDate | date: "dd/MM/yyyy"}}</td>
     <td>{{event.eventStartTime}}</td>
     <td>{{event.eventEndTime}}</td>
     <td>{{event.eventCompleted}}</td>
