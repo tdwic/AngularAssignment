@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DataFromComponentHandlerService} from '../DataFromComponentHandler/data-from-component-handler.service';
 import {EventModel} from '../model/EventModel';
-import {faPencilAlt,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import {faPencilAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {MatDialog} from '@angular/material/dialog';
-import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
-import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
 import {DateFormat} from '../GlobleMethod/dateFormat';
 import {EventEditComponent} from '../event-edit/event-edit.component';
 
@@ -52,6 +50,7 @@ export class EventListComponent implements OnInit {
 
   ngOnInit() {
     this.clockMethod();
+    this.itemPrinter();
 
     this.dataFromComponentHandlerService.saveUpdates.subscribe(
       data => this.saveEditChanges(data)
@@ -156,10 +155,81 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
-      let convertedTime = (this.time.getUTCHours()+ ":"+this.time.getMinutes());
-     // console.log(this.time.getHours()+":"+this.time.getMinutes());
+      let y = this.time.toTimeString();
+      //let y = "12:19:14 AM";
+console.log("yyyy "+y);
+      let min = parseInt(y.split( ':',2).splice(1).toString());
+      let am_pm = y.split( ' ',2).splice(1).toString();
+      let hour = parseInt( y.split( ':',1).toString());
+      console.log("Time "+hour+":"+min+":"+am_pm);
+
+      if (am_pm == 'PM'){
+
+        if (hour != 12){
+            hour = hour * 1 + 12;
+        }
+
+      }else if (am_pm == "AM" && hour == 12){
+        hour = hour -12;
+      }else{
+        hour = hour;
+      }
+      let newHour
+      if (hour < 10){
+        newHour = "0"+hour;
+      }else {
+        newHour = hour;
+      }
+
+      console.log("New Time "+ newHour+":" + min);
+
+      this.EventListMemory.forEach((event)=>{
+        console.log("hi " + event.eventStartTime);
+        console.log("hi2 " + event.eventStartTime.toString());
+      })
+
+
     }, 1000);
   }
 
+  itemPrinter() {
+    setInterval(() => {
+      this.time   = new Date();
+     // console.log("fff "+this.time);
+     //  console.log("getDate "+this.time.getDate());
+     //  console.log("getDay "+this.time.getDay());
+     //  console.log("getFullYear "+this.time.getFullYear());
+     //  console.log("getHours "+this.time.getHours());
+     //  console.log("getMilliseconds "+this.time.getMilliseconds());
+     //  console.log("getMinutes "+this.time.getMinutes());
+     //  console.log("getMonth "+this.time.getMonth());
+     //  console.log("getSeconds "+this.time.getSeconds());
+     //  console.log("getSeconds "+this.time.getSeconds());
+     //  console.log("getTime "+this.time.getTime() );
+     //  console.log("getTimezoneOffset "+this.time.getTimezoneOffset() );
+     //  console.log("getUTCDate "+this.time.getUTCDate() );
+     //  console.log("getUTCDay "+this.time.getUTCDay() );
+     //  console.log("getUTCFullYear "+this.time.getUTCFullYear() );
+     //  console.log("getUTCHours "+this.time.getUTCHours() +this.time.getTimezoneOffset());
+     //  console.log("getUTCMilliseconds "+this.time.getUTCMilliseconds() );
+     //  console.log("getUTCMinutes "+this.time.getUTCMinutes());
+     //  console.log("getUTCMonth "+this.time.getUTCMonth());
+     //  console.log("getUTCSeconds "+this.time.getUTCSeconds() );
+     //  console.log("getSeconds "+this.time );
+     //  console.log("getSeconds "+this.time );
+     //  console.log("###########################################");
 
+//       let test = (this.time.getUTCHours() + ":" + this.time.getMinutes());
+//       console.log("test " + test);
+// this.EventListMemory.forEach((event)=>{
+//   if (event.eventStartTime == test){
+//     console.log("fuu " + event.eventStartTime);
+//   }
+//   console.log("fuu " + event.eventStartTime);
+// });
+      //console.log("Done " + this.EventListMemory[0].eventId);
+
+    }, 1000);
+
+  }
 }
