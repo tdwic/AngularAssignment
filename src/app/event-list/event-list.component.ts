@@ -71,11 +71,6 @@ export class EventListComponent implements OnInit {
     let eventModel: EventModel;
     eventModel = data;
 
-    let indexInMemory;
-    let indexInView;
-    indexInMemory = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
-    indexInView = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
-
     this.EventList.forEach((event)=>{
       if (event.eventId == eventModel.eventId){
         event.eventId = eventModel.eventId;
@@ -86,7 +81,19 @@ export class EventListComponent implements OnInit {
         event.eventDate = eventModel.eventDate;
         event.eventCompleted = eventModel.eventCompleted;
       }
-    })
+    });
+
+    this.EventListMemory.forEach((event)=>{
+      if (event.eventId == eventModel.eventId){
+        event.eventId = eventModel.eventId;
+        event.eventName = eventModel.eventName;
+        event.eventDescription = eventModel.eventDescription;
+        event.eventStartTime = eventModel.eventStartTime;
+        event.eventEndTime = eventModel.eventEndTime;
+        event.eventDate = eventModel.eventDate;
+        event.eventCompleted = eventModel.eventCompleted;
+      }
+    });
 
     // console.log("Saving from " + eventModel.eventName);
     // console.log("Saving from " + eventModel.eventStartTime);
@@ -149,6 +156,7 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
+      let convertedTime = (this.time.getUTCHours()+ ":"+this.time.getMinutes());
      // console.log(this.time.getHours()+":"+this.time.getMinutes());
     }, 1000);
   }

@@ -10,6 +10,7 @@ import {EventModel} from '../model/EventModel';
 export class EventNextComponent implements OnInit {
 
 eventModel= {
+  eventDescription:'',
   eventId: '',
   eventName: '',
   eventStartTime: '',
