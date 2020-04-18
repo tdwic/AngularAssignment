@@ -53,6 +53,10 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
     this.clockMethod();
 
+    this.dataFromComponentHandlerService.saveUpdates.subscribe(
+      data => this.saveEditChanges(data)
+    );
+
     this.dataFromComponentHandlerService.selectedDate.subscribe(
       data => this.changeValue(data)
     );
@@ -63,7 +67,24 @@ export class EventListComponent implements OnInit {
 
   }
 
+  saveEditChanges(data){
+    let eventModel: EventModel;
+    eventModel = data;
 
+    let indexInMemory;
+    let indexInView;
+    indexInMemory = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
+    indexInView = (this.EventListMemory.findIndex(x=>x.eventId == eventModel.eventId));
+
+    
+    // console.log("Saving from " + eventModel.eventName);
+    // console.log("Saving from " + eventModel.eventStartTime);
+    // console.log("Saving from " + eventModel.eventId);
+    // console.log("Saving from " + eventModel.eventEndTime);
+    // console.log("Saving from " + eventModel.eventDescription);
+    // console.log("Saving from " + eventModel.eventDate);
+    // console.log("Saving from " + eventModel.eventCompleted);
+  }
 
   changeValue(data) {
     this.tempArray = [];
@@ -117,7 +138,7 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
-      console.log(this.time.getHours()+":"+this.time.getMinutes());
+     // console.log(this.time.getHours()+":"+this.time.getMinutes());
     }, 1000);
   }
 

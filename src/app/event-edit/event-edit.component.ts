@@ -38,17 +38,17 @@ export class EventEditComponent implements OnInit {
 
   saveEditedEvent() {
 
-    // let eventModel = new EventModel();
-    //
-    // eventModel.eventId = this.newEventFormController.controls["eventId"].value;
-    // eventModel.eventName = this.newEventFormController.controls["eventName"].value;
-    // eventModel.eventDescription = this.newEventFormController.controls["eventDescription"].value;
-    // eventModel.eventDate = this.newEventFormController.controls["eventDate"].value;
-    // eventModel.eventStartTime = this.newEventFormController.controls["eventStartTime"].value;
-    // eventModel.eventEndTime = this.newEventFormController.controls["eventEndTime"].value;
-    // eventModel.eventCompleted = 'Not Completed';
-    //
-    // this.dataFromComponentHandlerService.addNewEvent(eventModel);
+    let eventModel = new EventModel();
+
+    eventModel.eventId = this.newEventFormController.controls["eventId"].value;
+    eventModel.eventName = this.newEventFormController.controls["eventName"].value;
+    eventModel.eventDescription = this.newEventFormController.controls["eventDescription"].value;
+    eventModel.eventDate = this.newEventFormController.controls["eventDate"].value;
+    eventModel.eventStartTime = this.newEventFormController.controls["eventStartTime"].value;
+    eventModel.eventEndTime = this.newEventFormController.controls["eventEndTime"].value;
+    eventModel.eventCompleted = 'Not Completed';
+
+    this.dataFromComponentHandlerService.saveEditEvent(eventModel);
 
   }
 
