@@ -5,6 +5,7 @@ import {faPencilAlt,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {MatDialog} from '@angular/material/dialog';
 import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
 import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
+import {DateFormat} from '../GlobleMethod/dateFormat';
 
 
 @Component({
@@ -13,6 +14,8 @@ import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
+
+  dateFormatService = new DateFormat();
   idNumber:number=0;
   EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
@@ -62,13 +65,12 @@ export class EventListComponent implements OnInit {
 
 
   changeValue(data) {
-
     this.tempArray = [];
-
     this.selectedDate =data;
 
     this.EventListMemory.forEach((event)=>{
-      if (event.eventDate == this.selectedDate){
+      let date = this.dateFormatService.formatDateInput(event.eventDate);
+      if (date == this.selectedDate){
         this.tempArray.push(event);
       }
     });
@@ -88,7 +90,9 @@ export class EventListComponent implements OnInit {
   editEvent(event) {
     // let eventModel: EventModel;
     // eventModel = event;
-    // this.matDialog.open(EventAddNewComponent,{width:"70%",eventModel});
+    // this.matDialog.open(EventAddNewComponent,{width:"70%",eventModel:{
+    //
+    //   }});
   }
 
   removeEvent(eventId: number) {

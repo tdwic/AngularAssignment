@@ -13,6 +13,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class EventAddNewComponent implements OnInit {
 
+  dateFormatService = new DateFormat();
   editableDialog:boolean=false;
   idNumber:number=0;
   public newEventFormController:FormGroup;
@@ -36,14 +37,11 @@ export class EventAddNewComponent implements OnInit {
 
   addNewEvent(){
     let eventModel = new EventModel();
-    let dateFormatService = new DateFormat();
-
-    let tempDate = dateFormatService.formatDateInput(this.newEventFormController.controls["eventDate"].value);
 
     eventModel.eventId = this.idNumber;
     eventModel.eventName = this.newEventFormController.controls["eventName"].value;
     eventModel.eventDescription = this.newEventFormController.controls["eventDescription"].value;
-    eventModel.eventDate = tempDate;
+    eventModel.eventDate = this.newEventFormController.controls["eventDate"].value;
     eventModel.eventStartTime = this.newEventFormController.controls["eventStartTime"].value;
     eventModel.eventEndTime = this.newEventFormController.controls["eventEndTime"].value;
     eventModel.eventCompleted = 'Not Completed';
