@@ -90,9 +90,12 @@ export class EventListComponent implements OnInit {
   editEvent(event) {
     // let eventModel: EventModel;
     // eventModel = event;
-    // this.matDialog.open(EventAddNewComponent,{width:"70%",eventModel:{
+    // this.matDialog.open(EventAddNewComponent,{
+    //   width:"70%",
+    //   data:{
     //
-    //   }});
+    //   }
+    // });
   }
 
   removeEvent(eventId: number) {

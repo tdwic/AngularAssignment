@@ -22,6 +22,7 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
 import { EventListByDayComponent } from './event-list-by-day/event-list-by-day.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EventToDayComponent,
     EventActionButtonComponent,
     EventAddNewComponent,
-    EventListByDayComponent
+    EventListByDayComponent,
+    EventEditComponent
   ],
     imports: [
         BrowserModule,
