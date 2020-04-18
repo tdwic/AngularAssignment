@@ -13,6 +13,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class EventAddNewComponent implements OnInit {
 
+
   dateFormatService = new DateFormat();
   editableDialog:boolean=false;
   idNumber:number=0;

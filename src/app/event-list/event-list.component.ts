@@ -94,7 +94,7 @@ export class EventListComponent implements OnInit {
     this.matDialog.open(EventEditComponent,{
       width:"70%",
       data:{
-
+        eventModel
       }
     });
   }
