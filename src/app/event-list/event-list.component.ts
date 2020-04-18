@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {EventListByDayComponent} from '../event-list-by-day/event-list-by-day.component';
 import {EventAddNewComponent} from '../event-add-new/event-add-new.component';
 import {DateFormat} from '../GlobleMethod/dateFormat';
+import {EventEditComponent} from '../event-edit/event-edit.component';
 
 
 @Component({
@@ -88,14 +89,14 @@ export class EventListComponent implements OnInit {
   }
 
   editEvent(event) {
-    // let eventModel: EventModel;
-    // eventModel = event;
-    // this.matDialog.open(EventAddNewComponent,{
-    //   width:"70%",
-    //   data:{
-    //
-    //   }
-    // });
+    let eventModel: EventModel;
+    eventModel = event;
+    this.matDialog.open(EventEditComponent,{
+      width:"70%",
+      data:{
+
+      }
+    });
   }
 
   removeEvent(eventId: number) {
