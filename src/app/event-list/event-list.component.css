@@ -2,3 +2,27 @@
   margin-top: 2rem;
   background-color: darkseagreen;
 }
+.ExpiredListRow{
+  margin-top: 2rem;
+  background-color: indianred;
+}
+
+.eventList{
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.eventList h4{
+text-align: center;
+}
+.expiredList{
+  height: 200px;
+  //background-color: ;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.expiredList h4{
+  text-align: center;
+}

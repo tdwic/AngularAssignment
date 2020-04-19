@@ -21,6 +21,7 @@ export class EventListComponent implements OnInit {
   idNumber:number=0;
   EventListMemory: Array<EventModel> = [];
   EventList: Array<EventModel> = [];
+  ExpiredEventList: Array<EventModel> = [];
   tempArray: Array<EventModel> = [];
 
   selectedDate: any;
@@ -53,6 +54,7 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
     this.clockMethod();
     this.itemPrinter();
+
 
     this.dataFromComponentHandlerService.saveUpdates.subscribe(
       data => this.saveEditChanges(data)
@@ -148,6 +150,7 @@ export class EventListComponent implements OnInit {
 
   clockMethod(){
     setInterval(() => {
+
       this.time = new Date();
       let timeToFilter = this.time.toTimeString();
       //let timeToFilter = "06:00 PM";
@@ -207,40 +210,6 @@ export class EventListComponent implements OnInit {
   itemPrinter() {
     setInterval(() => {
       this.time   = new Date();
-     // console.log("fff "+this.time);
-     //  console.log("getDate "+this.time.getDate());
-     //  console.log("getDay "+this.time.getDay());
-     //  console.log("getFullYear "+this.time.getFullYear());
-     //  console.log("getHours "+this.time.getHours());
-     //  console.log("getMilliseconds "+this.time.getMilliseconds());
-     //  console.log("getMinutes "+this.time.getMinutes());
-     //  console.log("getMonth "+this.time.getMonth());
-     //  console.log("getSeconds "+this.time.getSeconds());
-     //  console.log("getSeconds "+this.time.getSeconds());
-     //  console.log("getTime "+this.time.getTime() );
-     //  console.log("getTimezoneOffset "+this.time.getTimezoneOffset() );
-     //  console.log("getUTCDate "+this.time.getUTCDate() );
-     //  console.log("getUTCDay "+this.time.getUTCDay() );
-     //  console.log("getUTCFullYear "+this.time.getUTCFullYear() );
-     //  console.log("getUTCHours "+this.time.getUTCHours() +this.time.getTimezoneOffset());
-     //  console.log("getUTCMilliseconds "+this.time.getUTCMilliseconds() );
-     //  console.log("getUTCMinutes "+this.time.getUTCMinutes());
-     //  console.log("getUTCMonth "+this.time.getUTCMonth());
-     //  console.log("getUTCSeconds "+this.time.getUTCSeconds() );
-     //  console.log("getSeconds "+this.time );
-     //  console.log("getSeconds "+this.time );
-     //  console.log("###########################################");
-
-//       let test = (this.time.getUTCHours() + ":" + this.time.getMinutes());
-//       console.log("test " + test);
-// this.EventListMemory.forEach((event)=>{
-//   if (event.eventStartTime == test){
-//     console.log("fuu " + event.eventStartTime);
-//   }
-//   console.log("fuu " + event.eventStartTime);
-// });
-      //console.log("Done " + this.EventListMemory[0].eventId);
-
     }, 1000);
 
   }

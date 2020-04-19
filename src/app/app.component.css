@@ -8,10 +8,22 @@ div{
 .app-title{
   background-color: coral;
 }
-.container {
+
+.app-title h1{
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  padding: 10px;
+  font-size: 40px;
+  position: center;
+  text-align: center;
+}
+
+.container-fluid {
   margin: 10px auto;
   border: 1px yellow solid;
-  background-color: rgba(255,255,255,1);
+  width: 90%;
+  height: 90%;
+  background-color:darkorchid;
 }
 .row{
   border: 1px green solid;
@@ -33,4 +45,11 @@ div{
   height: auto;
   margin: 10px auto;
   overflow: hidden;
+}
+
+.event-list{
+  height: 100%;
+}
+.event-list-row{
+  height: 73%;
 }

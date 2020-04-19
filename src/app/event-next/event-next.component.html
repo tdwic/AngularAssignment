@@ -1,20 +1,23 @@
-<table style="width:100%">
-  <tr>
-    <th>Event Name</th>
-    <th>Event Description</th>
-    <th>Event Date</th>
-    <th>Event Start Time</th>
-    <th>Event End Time</th>
-    <th>Event Status</th>
-    <th>Action</th>
-  </tr>
-  <tr *ngFor="let eventModel of EventList">
-    <td>{{eventModel.eventId}}</td>
-    <td>{{eventModel.eventName}}</td>
-    <td>{{eventModel.eventDescription}}</td>
-    <td>{{eventModel.eventDate | date: "dd/MM/yyyy"}}</td>
-    <td>{{eventModel.eventStartTime}}</td>
-    <td>{{eventModel.eventEndTime}}</td>
-    <td>{{eventModel.eventCompleted}}</td>
-  </tr>
-</table>
+
+  <table style="width:100%">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let eventModel of EventList">
+      <td>{{eventModel.eventId}}</td>
+      <td>{{eventModel.eventName}}</td>
+      <td>{{eventModel.eventDescription}}</td>
+      <td>{{eventModel.eventDate | date: "dd/MM/yyyy"}}</td>
+      <td>{{eventModel.eventStartTime}}</td>
+      <td>{{eventModel.eventEndTime}}</td>
+      <td>{{eventModel.eventCompleted}}</td>
+    </tr>
+  </table>
+
+

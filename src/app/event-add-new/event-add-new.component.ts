@@ -46,8 +46,10 @@ export class EventAddNewComponent implements OnInit {
     eventModel.eventStartTime = this.newEventFormController.controls["eventStartTime"].value;
     eventModel.eventEndTime = this.newEventFormController.controls["eventEndTime"].value;
     eventModel.eventCompleted = 'Not Completed';
+    if (eventModel.eventName != '' && eventModel.eventDescription != ''){
+      this.dataFromComponentHandlerService.addNewEvent(eventModel);
+    }
 
-    this.dataFromComponentHandlerService.addNewEvent(eventModel);
   }
 
   closeDialog() {

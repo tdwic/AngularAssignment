@@ -1,26 +1,52 @@
-<h3>Selected Date :- {{selectedDate}}</h3>
-<table style="width:100%">
-  <tr>
-    <th>Event Name</th>
-    <th>Event Description</th>
-    <th>Event Date</th>
-    <th>Event Start Time</th>
-    <th>Event End Time</th>
-    <th>Event Status</th>
-    <th>Action</th>
-  </tr>
+<div class="eventList">
+  <h4>Events</h4>
+  <table style="width:100%">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
 
-  <tr *ngFor="let event of EventList" class="EventListRow" >
-    <td>{{event.eventName}}</td>
-    <td>{{event.eventDescription}}</td>
-    <td>{{event.eventDate | date:'dd/MM/yyyy'}}</td>
-    <td>{{event.eventStartTime}}</td>
-    <td>{{event.eventEndTime}}</td>
-    <td>{{event.eventCompleted}}</td>
-    <td><span (click)="editEvent(event)"><fa-icon [icon]="faPencilAlt"></fa-icon></span></td>
-    <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
-  </tr>
-  <mat-divider></mat-divider>
+    <tr *ngFor="let event of EventList" class="EventListRow" >
+      <td>{{event.eventName}}</td>
+      <td>{{event.eventDescription}}</td>
+      <td>{{event.eventDate | date:'dd/MM/yyyy'}}</td>
+      <td>{{event.eventStartTime}}</td>
+      <td>{{event.eventEndTime}}</td>
+      <td>{{event.eventCompleted}}</td>
+      <td><span (click)="editEvent(event)"><fa-icon [icon]="faPencilAlt"></fa-icon></span></td>
+      <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
+    </tr>
+  </table>
+</div>
+<br><br>
+<mat-divider></mat-divider>
+<div class="expiredList">
+  <h4>Expired Events</h4>
+  <table style="width:100%">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
 
-</table>
+    <tr *ngFor="let event of ExpiredEventList" class="ExpiredListRow" >
+      <td>{{event.eventName}}</td>
+      <td>{{event.eventDescription}}</td>
+      <td>{{event.eventDate | date:'dd/MM/yyyy'}}</td>
+      <td>{{event.eventStartTime}}</td>
+      <td>{{event.eventEndTime}}</td>
+      <td>{{event.eventCompleted}}</td>
+      <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
+    </tr>
+  </table>
+</div>
 
