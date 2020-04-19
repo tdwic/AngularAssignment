@@ -116,11 +116,20 @@ export class EventListComponent implements OnInit {
   }
 
   changeValueNewEvent(data){
+    let date = new Date().toDateString();
     let eventModel: EventModel;
     eventModel = data;
     eventModel.eventId = this.idNumber++;
     this.EventListMemory.push(eventModel);
     this.EventList.push(eventModel);
+    //console.log(eventModel.eventDate.toDateString()+"=="+date);
+    // if (eventModel.eventDate. == date || eventModel.eventDate.toDateString() > date){
+    //   this.EventListMemory.push(eventModel);
+    //   this.EventList.push(eventModel);
+    // }else{
+    //   this.ExpiredEventList.push(eventModel);
+    // }
+
   }
 
   editEvent(event) {
@@ -138,7 +147,7 @@ export class EventListComponent implements OnInit {
     let indexInView;
     indexInMemory = (this.EventListMemory.findIndex(x=>x.eventId == eventId));
     indexInView = (this.EventListMemory.findIndex(x=>x.eventId == eventId));
-
+    this.ExpiredEventList.push(this.EventListMemory[indexInMemory]);
     this.EventListMemory.splice(indexInMemory,1);
     this.EventList.splice(indexInView,1);
 
@@ -151,6 +160,7 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
 
+      // console.log(date);
       this.time = new Date();
       let timeToFilter = this.time.toTimeString();
       //let timeToFilter = "06:00 PM";
@@ -198,6 +208,8 @@ export class EventListComponent implements OnInit {
           let indexInView;
           indexInMemory = (this.EventListMemory.findIndex(x=>x.eventEndTime == finalTime));
           indexInView = (this.EventListMemory.findIndex(x=>x.eventEndTime == finalTime));
+          this.EventListMemory[indexInMemory].eventCompleted = "Completed";
+          this.ExpiredEventList.push(this.EventListMemory[indexInMemory]);
           this.dataFromComponentHandlerService.sendEventIdToRemove(event.eventId);
           this.EventListMemory.splice(indexInMemory,1);
           this.EventList.splice(indexInView,1);
