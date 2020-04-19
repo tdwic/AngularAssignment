@@ -125,7 +125,6 @@ export class EventListComponent implements OnInit {
     let eventModel: EventModel;
     eventModel = event;
     this.matDialog.open(EventEditComponent,{
-      width:"30%",
       data:{
         eventModel
       }
@@ -150,8 +149,8 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
-     let timeToFilter = this.time.toTimeString();
-      //let timeToFilter = "03:45 AM";
+      let timeToFilter = this.time.toTimeString();
+      //let timeToFilter = "06:00 PM";
       let min = parseInt(timeToFilter.split( ':',2).splice(1).toString());
       let am_pm = timeToFilter.split( ' ',2).splice(1).toString();
       let hour = parseInt( timeToFilter.split( ':',1).toString());
@@ -167,8 +166,8 @@ export class EventListComponent implements OnInit {
       }else{
         hour = hour;
       }
-      let newHour
-      let newMin
+      let newHour;
+      let newMin;
       if (min < 10){
         newMin = "0"+min;
       }else {
@@ -191,12 +190,17 @@ export class EventListComponent implements OnInit {
         }
 
         if (event.eventEndTime == finalTime){
-          this.dataFromComponentHandlerService.updateNextEvent(null);
+          //this.dataFromComponentHandlerService.updateNextEvent(null);
+          let indexInMemory;
+          let indexInView;
+          indexInMemory = (this.EventListMemory.findIndex(x=>x.eventEndTime == finalTime));
+          indexInView = (this.EventListMemory.findIndex(x=>x.eventEndTime == finalTime));
+          this.dataFromComponentHandlerService.sendEventIdToRemove(event.eventId);
+          this.EventListMemory.splice(indexInMemory,1);
+          this.EventList.splice(indexInView,1);
         }
 
       })
-
-
     }, 1000);
   }
 

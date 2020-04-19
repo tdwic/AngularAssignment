@@ -9,6 +9,8 @@ import {EventModel} from '../model/EventModel';
 })
 export class EventNextComponent implements OnInit {
 
+  EventList: Array<EventModel> = [];
+
 eventModel= {
   eventDescription:'',
   eventId: '',
@@ -25,17 +27,21 @@ eventModel= {
     this.dataFromComponentHandlerService.nextEvent.subscribe(
       data => this.changeValue(data)
     );
+
+    this.dataFromComponentHandlerService.eventIdToRemove.subscribe(
+      data => this.removeEvent(data)
+    );
   }
 
   changeValue(data){
+    let eventModel: EventModel;
+    eventModel = data;
+    this.EventList =[];
+    this.EventList.push(eventModel);
+  }
 
-    if (data != null){
-      this.eventModel = data;
-    }
-
-
-    console.log("In Next Event Component " + this.eventModel.eventName);
-
+  removeEvent(data){
+    this.EventList.splice(0,1);
   }
 
 }

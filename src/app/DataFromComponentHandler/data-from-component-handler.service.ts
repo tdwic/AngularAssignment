@@ -11,12 +11,17 @@ export class DataFromComponentHandlerService {
 
   public selectedDate = new Subject();
   public nextEvent = new Subject();
+  public eventIdToRemove = new Subject();
   public newEvent = new Subject();
   public saveUpdates  = new Subject();
   public feilteredEventsByDate = new Subject();
 
   constructor(public matDialog: MatDialog) {
 
+  }
+
+  sendEventIdToRemove(data){
+    this.eventIdToRemove.next(data);
   }
 
   dateUpdate(data) {
@@ -39,8 +44,7 @@ export class DataFromComponentHandlerService {
   filterEventsByDate(data){
     this.feilteredEventsByDate.next(data);
     console.log("Just Paased" + data);
-    this.matDialog.open(EventListByDayComponent,{width:"70%",data});
-
+    this.matDialog.open(EventListByDayComponent,{data});
   }
 
 

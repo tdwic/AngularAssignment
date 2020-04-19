@@ -8,11 +8,11 @@
     <th>Event Status</th>
     <th>Action</th>
   </tr>
-  <tr>
+  <tr *ngFor="let eventModel of EventList">
     <td>{{eventModel.eventId}}</td>
     <td>{{eventModel.eventName}}</td>
     <td>{{eventModel.eventDescription}}</td>
-    <td>{{eventModel.eventDate}}</td>
+    <td>{{eventModel.eventDate | date: "dd/MM/yyyy"}}</td>
     <td>{{eventModel.eventStartTime}}</td>
     <td>{{eventModel.eventEndTime}}</td>
     <td>{{eventModel.eventCompleted}}</td>

@@ -3,6 +3,7 @@
   <mat-form-field class="example-full-width">
     <mat-label>Event Name</mat-label>
     <input
+      required
       matInput
       formControlName="eventName"
       placeholder="Annual Meeting" >
@@ -11,6 +12,7 @@
   <mat-form-field class="example-full-width">
     <mat-label>Event Description</mat-label>
     <textarea
+      required
           matInput
           formControlName="eventDescription"
           placeholder="Ex. First attend lectures, then "></textarea>
@@ -19,6 +21,7 @@
   <mat-form-field class="example-full-width">
     <mat-label>Choose a date</mat-label>
     <input
+      required
         matInput
         formControlName="eventDate"
         [matDatepicker]="picker">
