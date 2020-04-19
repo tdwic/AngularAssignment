@@ -10,7 +10,7 @@
     <th>Action</th>
   </tr>
 
-  <tr *ngFor="let event of EventList">
+  <tr *ngFor="let event of EventList" class="EventListRow" >
     <td>{{event.eventName}}</td>
     <td>{{event.eventDescription}}</td>
     <td>{{event.eventDate | date:'dd/MM/yyyy'}}</td>
@@ -19,7 +19,9 @@
     <td>{{event.eventCompleted}}</td>
     <td><span (click)="editEvent(event)"><fa-icon [icon]="faPencilAlt"></fa-icon></span></td>
     <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
+
   </tr>
+  <mat-divider></mat-divider>
 
 </table>
 

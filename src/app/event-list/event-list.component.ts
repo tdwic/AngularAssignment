@@ -150,8 +150,8 @@ export class EventListComponent implements OnInit {
   clockMethod(){
     setInterval(() => {
       this.time = new Date();
-     // let timeToFilter = this.time.toTimeString();
-      let timeToFilter = "03:45 AM";
+     let timeToFilter = this.time.toTimeString();
+      //let timeToFilter = "03:45 AM";
       let min = parseInt(timeToFilter.split( ':',2).splice(1).toString());
       let am_pm = timeToFilter.split( ' ',2).splice(1).toString();
       let hour = parseInt( timeToFilter.split( ':',1).toString());
@@ -168,13 +168,19 @@ export class EventListComponent implements OnInit {
         hour = hour;
       }
       let newHour
+      let newMin
+      if (min < 10){
+        newMin = "0"+min;
+      }else {
+        newMin = min;
+      }
       if (hour < 10){
         newHour = "0"+hour;
       }else {
         newHour = hour;
       }
 
-      let finalTime = (newHour + ":" + min).toString();
+      let finalTime = (newHour + ":" + newMin).toString();
       console.log("New Time "+ finalTime);
 
       this.EventListMemory.forEach((event)=>{
