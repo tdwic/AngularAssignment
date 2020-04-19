@@ -125,7 +125,7 @@ export class EventListComponent implements OnInit {
     let eventModel: EventModel;
     eventModel = event;
     this.matDialog.open(EventEditComponent,{
-      width:"70%",
+      width:"30%",
       data:{
         eventModel
       }

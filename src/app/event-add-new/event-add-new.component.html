@@ -1,4 +1,4 @@
-<p>event-add-new works!</p>
+<h3>Add New Event</h3>
 <form class="example-form" [formGroup]="newEventFormController">
   <mat-form-field class="example-full-width">
     <mat-label>Event Name</mat-label>
@@ -29,7 +29,6 @@
   <mat-form-field class="example-full-width">
     <mat-label>Choose Start Time</mat-label>
     <input
-      type="time"
         atp-time-picker
         formControlName="eventStartTime"
         matInput>
@@ -38,11 +37,10 @@
   <mat-form-field class="example-full-width">
     <mat-label>Choose End Time</mat-label>
     <input
-      type="time"
         atp-time-picker
         formControlName="eventEndTime"
         matInput>
   </mat-form-field>
-  <button mat-flat-button color="primary" (click)="addNewEvent()" >Save</button>
-  <button mat-flat-button color="warn" (click)="closeDialog()" >Close</button>
+  <button mat-flat-button color="primary" class="addNewEventBtn" (click)="addNewEvent()" >Add Event</button>
+  <button mat-flat-button color="warn" class="closeNewEventBtn" (click)="closeDialog()" >Cancel</button>
 </form>

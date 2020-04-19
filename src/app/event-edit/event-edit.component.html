@@ -1,5 +1,4 @@
-<p>event-edit works!</p>
-<p>event-add-new works!</p>
+<h3>Edit Event</h3>
 <form class="example-form" [formGroup]="newEventFormController">
   <mat-form-field class="example-full-width">
     <mat-label>Event Name</mat-label>
@@ -42,6 +41,6 @@
       formControlName="eventEndTime"
       matInput>
   </mat-form-field>
-  <button mat-flat-button color="primary" (click)="saveEditedEvent()" >Save</button>
-  <button mat-flat-button color="warn" (click)="closeDialog()" >Close</button>
+  <button mat-flat-button color="primary" class="addNewEventBtn" (click)="saveEditedEvent()" >Save</button>
+  <button mat-flat-button color="warn" class="closeNewEventBtn" (click)="closeDialog()" >Cancel</button>
 </form>

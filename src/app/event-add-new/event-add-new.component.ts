@@ -23,8 +23,8 @@ export class EventAddNewComponent implements OnInit {
     private dialogRef: MatDialogRef<EventAddNewComponent>,
     private dataFromComponentHandlerService: DataFromComponentHandlerService) {
     this.newEventFormController = new FormGroup({
-      eventName:new FormControl("t"),
-      eventDescription:new FormControl("t2"),
+      eventName:new FormControl(""),
+      eventDescription:new FormControl(""),
       eventDate:new FormControl(new Date()),
       eventStartTime:new FormControl("10:00"),
       eventEndTime:new FormControl("10:00"),

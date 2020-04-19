@@ -7,3 +7,11 @@
 .example-full-width {
   width: 100%;
 }
+
+.addNewEventBtn{
+
+}
+
+.closeNewEventBtn{
+  margin-left: 10px;
+}
