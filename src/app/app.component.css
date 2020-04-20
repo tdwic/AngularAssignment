@@ -1,6 +1,6 @@
-div{
-  border: 1px red solid;
-}
+/*div{*/
+/*  border-left: 5px red solid;*/
+/*}*/
 
 .main-container{
   height: 100%;
@@ -46,7 +46,6 @@ div{
 .add-event{
   height: 5rem;
   margin: 10px auto;
-  background-color: lawngreen;
 }
 
 .calender{

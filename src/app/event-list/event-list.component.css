@@ -13,7 +13,7 @@
   overflow-x: scroll;
 }
 
-.eventList h4{
+.eventList h2{
 text-align: center;
 }
 .expiredList{
@@ -23,6 +23,6 @@ text-align: center;
   overflow-x: scroll;
 }
 
-.expiredList h4{
+.expiredList h2{
   text-align: center;
 }
