@@ -122,14 +122,6 @@ export class EventListComponent implements OnInit {
     eventModel.eventId = this.idNumber++;
     this.EventListMemory.push(eventModel);
     this.EventList.push(eventModel);
-    //console.log(eventModel.eventDate.toDateString()+"=="+date);
-    // if (eventModel.eventDate. == date || eventModel.eventDate.toDateString() > date){
-    //   this.EventListMemory.push(eventModel);
-    //   this.EventList.push(eventModel);
-    // }else{
-    //   this.ExpiredEventList.push(eventModel);
-    // }
-
   }
 
   editEvent(event) {
@@ -156,6 +148,13 @@ export class EventListComponent implements OnInit {
     }
 
   }
+
+  removeEventFromExpireArray(eventId:number){
+    let indexInExpireArray;
+    indexInExpireArray = (this.ExpiredEventList.findIndex(x=>x.eventId == eventId));
+    this.ExpiredEventList.splice(indexInExpireArray,1);
+  }
+
 
   clockMethod(){
     setInterval(() => {

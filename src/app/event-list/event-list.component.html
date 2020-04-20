@@ -45,7 +45,7 @@
       <td>{{event.eventStartTime}}</td>
       <td>{{event.eventEndTime}}</td>
       <td>{{event.eventCompleted}}</td>
-      <td><span (click)="removeEvent(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
+      <td><span (click)="removeEventFromExpireArray(event.eventId)"><fa-icon [icon]="faTrashAlt"></fa-icon></span></td>
     </tr>
   </table>
 </div>
