@@ -5,11 +5,9 @@ div{
 .main-container{
   height: 100%;
 }
-.app-title{
-  background-color: coral;
-}
 
-.app-title h1{
+
+.app-title{
   font-family: "Helvetica Neue";
   font-weight: bold;
   padding: 10px;
@@ -18,12 +16,22 @@ div{
   text-align: center;
 }
 
+/*@media only screen and (min-width: 600px) {*/
+/*  .container-fluid {*/
+/*    margin: 10px auto;*/
+/*    border: 80px red solid;*/
+/*    width: 100%;*/
+/*    height: 90%;*/
+/*    background-color:darkorchid;*/
+/*  }*/
+/*}*/
+
 .container-fluid {
   margin: 10px auto;
   border: 1px yellow solid;
-  width: 90%;
+  width: 95%;
   height: 90%;
-  background-color:darkorchid;
+  background-color:white;
 }
 .row{
   border: 1px green solid;
@@ -45,6 +53,11 @@ div{
   height: auto;
   margin: 10px auto;
   overflow: hidden;
+  font-weight: bold;
+  background-color: #7b47ba;
+}
+.calender-col,.action-col, .next-event-col, .event-list-col, .app-title-col, .app-event-today-col{
+  background-color: #fdd387;
 }
 
 .event-list{

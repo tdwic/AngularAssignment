@@ -2,9 +2,7 @@
 
 html, body {
   height: 100%;
-  background-image: url("https://hdwallpapers.imgix.net/freestockphotos-36441554741754al7lr675vp.jpg?auto=compress&cs=tinysrgb&dpr=1");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #375369;
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
